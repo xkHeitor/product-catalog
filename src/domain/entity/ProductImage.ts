@@ -1,5 +1,6 @@
-export default class ProductImage {
+export type ProductImage = {
 
-    constructor (readonly name: string, readonly url: string) {}
+    readonly name: string;
+    readonly url: string;
 
 }

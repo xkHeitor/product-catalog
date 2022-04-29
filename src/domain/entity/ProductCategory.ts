@@ -1,4 +1,4 @@
-export type Catolog = {
+export type ProductCategory = {
 
     readonly name: string
     
