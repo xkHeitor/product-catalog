@@ -1,3 +1,7 @@
-import { ProductImage } from './../../domain/entity/ProductImage';
-
-export type ProductImageModel = ProductImage;
+export type ProductImageModel = {
+    
+    id: number;
+    name: string;
+    url: string;
+    
+};

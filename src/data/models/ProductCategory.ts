@@ -1,3 +1,6 @@
-import { ProductCategory } from './../../domain/entity/ProductCategory';
+export type ProductCategoryModel = {
+    
+    name: string;
+    id: number;
 
-export type ProductCategoryModel = ProductCategory;
+};

@@ -25,10 +25,10 @@ export class GetProductsService implements GetProducts {
 
         for(const item of dataProducts) {
             const category = await this.categoryRepository.getById(item.idCategory);
-            const productCategory: ProductCategory = { name: category.name };
+            const productCategory: ProductCategory = { name: category?.name || "Empty" };
 
             const image = await this.imageRepository.getById(item.idImage);
-            const productImage: ProductImage = { name: image.name, url: image.url };
+            const productImage: ProductImage = { name: image?.name || "img", url: image?.url || "none" };
 
             const product = new Product(item.name, item.description, item.code, item.price, productImage, productCategory);
             products.push(product);
