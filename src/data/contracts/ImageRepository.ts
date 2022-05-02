@@ -1,6 +1,6 @@
-import { ProductImage } from './../../domain/entity/ProductImage';
+import { ProductImageModel } from './../models/ProductImage';
 export interface ImageRepository {
 
-    getById(idImage: number): Promise<ProductImage|undefined>
+    getById(idImage: number): Promise<ProductImageModel|undefined>
 
 }

@@ -1,6 +1,5 @@
 import { ImageRepository } from "../../../data/contracts/ImageRepository";
 import { ProductImageModel } from "../../../data/models/ProductImage";
-import { ProductImage } from "../../../domain/entity/ProductImage";
 
 export default class ImageMemoryRepository implements ImageRepository {
     
@@ -13,7 +12,7 @@ export default class ImageMemoryRepository implements ImageRepository {
         ];
     }
 
-    async getById(idImage: number): Promise<ProductImage|undefined> {
+    async getById(idImage: number): Promise<ProductImageModel|undefined> {
         return this.images.find(img => img.id === idImage);
     }
 
