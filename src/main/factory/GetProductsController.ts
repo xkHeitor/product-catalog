@@ -1,5 +1,5 @@
-import { RepositoryFactory } from './../../data/factory/Repository';
-import { GetProductsService } from './../../data/services/GetProducts';
+import { RepositoryFactory } from '../../data/factory/Repository';
+import { GetProductsService } from '../../data/services/GetProducts';
 import { Controller } from "../../presentation/contracts/Controller";
 import GetProductsController from "../../presentation/controllers/GetProducts";
 import MemoryRepositoryFactory from '../../infra/factory/repository/Memory';

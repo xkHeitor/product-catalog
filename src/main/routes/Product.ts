@@ -1,5 +1,5 @@
-import { adaptRoute } from './../adapters/expressRouter';
-import { makeGetProductController } from './../factory/getProductsController';
+import { adaptRoute } from '../adapters/ExpressRouter';
+import { makeGetProductController } from '../factory/GetProductsController';
 import { Router } from 'express';
 
 export default (router: Router): void => {
