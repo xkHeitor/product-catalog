@@ -1,7 +1,6 @@
-import { adaptRoute } from '../adapters/ExpressRouter';
 import { makeGetProductController } from '../factory/GetProductsController';
-import { Router } from 'express';
+import Http from '../../presentation/contracts/Http';
 
-export default (router: Router): void => {
-    router.get('/products', adaptRoute(makeGetProductController()))
+export default (http: Http): void => {
+    http.route('get', '/products', makeGetProductController());
 }
