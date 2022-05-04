@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-describe("API", () => {
+describe.skip("API", () => {
 
     it("should testing the API and one route", async () => {
 
