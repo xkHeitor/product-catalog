@@ -1,8 +1,8 @@
-import { RepositoryFactory } from '../../factory/Repository';
+import { RepositoryFactory } from '../../factories/Repository';
 import { ProductCategory } from "../../../domain/entity/ProductCategory";
 import { CreateCategory } from "../../../domain/usecase/category/CreateCategory";
 import { ProductCategoryModel } from "../../models/ProductCategory";
-import { CategoryRepository } from '../../contracts/repository/CategoryRepository';
+import { CategoryRepository } from '../../contracts/repositories/CategoryRepository';
 import ExistingCategory from '../../../domain/errors/ExistingCategory';
 
 export default class CreateCategoryService implements CreateCategory {
@@ -19,7 +19,7 @@ export default class CreateCategoryService implements CreateCategory {
         
         await this.categoryRepository.save(category.name);
         productCategory = await this.categoryRepository.getByName(category.name);
-        if(!productCategory) throw "Could not save this category";
+        if(!productCategory) throw new Error("Could not save this category");
         return productCategory;
     }
 

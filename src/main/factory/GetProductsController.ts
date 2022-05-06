@@ -1,4 +1,4 @@
-import { RepositoryFactory } from '../../data/factory/Repository';
+import { RepositoryFactory } from '../../data/factories/Repository';
 import { GetProductsService } from '../../data/services/product/GetProducts';
 import { Controller } from "../../presentation/contracts/Controller";
 import GetProductsController from "../../presentation/controllers/GetProducts";

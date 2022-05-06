@@ -1,4 +1,4 @@
-import { ProductImageModel } from './../../models/ProductImage';
+import { ProductImageModel } from '../../models/ProductImage';
 
 export interface ImageRepository {
 

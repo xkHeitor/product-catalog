@@ -1,5 +1,5 @@
 import { ProductCategoryModel } from './../../../data/models/ProductCategory';
-import { CategoryRepository } from "../../../data/contracts/repository/CategoryRepository";
+import { CategoryRepository } from "../../../data/contracts/repositories/CategoryRepository";
 
 export default class CategoryMemoryRepository implements CategoryRepository {
     

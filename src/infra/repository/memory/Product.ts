@@ -1,5 +1,5 @@
 import { ProductModel } from './../../../data/models/Product';
-import { ProductRepository } from './../../../data/contracts/repository/ProductRepository';
+import { ProductRepository } from '../../../data/contracts/repositories/ProductRepository';
 
 export default class ProductRepositoryMemory implements ProductRepository {
     

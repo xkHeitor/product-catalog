@@ -1,4 +1,4 @@
-import { ProductCategoryModel } from './../../models/ProductCategory';
+import { ProductCategoryModel } from '../../models/ProductCategory';
 
 export interface CategoryRepository {
 

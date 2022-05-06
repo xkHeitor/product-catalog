@@ -2,13 +2,10 @@ import { ProductImageModel } from '../../models/ProductImage';
 import { ProductCategoryModel } from '../../models/ProductCategory';
 import { ProductModel } from '../../models/Product';
 import { GetProducts } from '../../../domain/usecase/product/GetProducts';
-import { ProductImage } from '../../../domain/entity/ProductImage';
-import { ProductCategory } from '../../../domain/entity/ProductCategory';
-import { ImageRepository } from '../../contracts/repository/ImageRepository';
-import { ProductRepository } from '../../contracts/repository/ProductRepository';
-import { RepositoryFactory } from '../../factory/Repository';
-import { CategoryRepository } from '../../contracts/repository/CategoryRepository';
-import Product from "../../../domain/entity/Product";
+import { ImageRepository } from '../../contracts/repositories/ImageRepository';
+import { ProductRepository } from '../../contracts/repositories/ProductRepository';
+import { RepositoryFactory } from '../../factories/Repository';
+import { CategoryRepository } from '../../contracts/repositories/CategoryRepository';
 
 export class GetProductsService implements GetProducts {
     

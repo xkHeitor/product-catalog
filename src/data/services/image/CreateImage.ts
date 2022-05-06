@@ -1,6 +1,6 @@
 import { ProductImageModel } from '../../models/ProductImage';
-import { RepositoryFactory } from '../../factory/Repository';
-import { ImageRepository } from '../../contracts/repository/ImageRepository';
+import { RepositoryFactory } from '../../factories/Repository';
+import { ImageRepository } from '../../contracts/repositories/ImageRepository';
 import { ProductImage } from '../../../domain/entity/ProductImage';
 import { CreateImage } from '../../../domain/usecase/image/CreateImage';
 import DuplicateImage from '../../../domain/errors/DuplicateImage';
@@ -19,7 +19,7 @@ export default class CreateImageService implements CreateImage {
 
         await this.imageRepository.save(productImage.name, productImage.url);
         dataImage = await this.imageRepository.getByURl(productImage.url);
-        if(!dataImage) throw "Ops, something went wrong";
+        if(!dataImage) throw new Error("Could not save this image");
         return dataImage;
     }
 

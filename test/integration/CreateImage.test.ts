@@ -1,7 +1,7 @@
-import { ImageRepository } from './../../src/data/contracts/repository/ImageRepository';
+import { ImageRepository } from '../../src/data/contracts/repositories/ImageRepository';
 import { ProductImageModel } from './../../src/data/models/ProductImage';
 import { ProductImage } from './../../src/domain/entity/ProductImage';
-import { RepositoryFactory } from './../../src/data/factory/Repository';
+import { RepositoryFactory } from '../../src/data/factories/Repository';
 import MemoryRepositoryFactory from '../../src/infra/factory/repository/Memory';
 import CreateImageService from '../../src/data/services/image/CreateImage';
 
