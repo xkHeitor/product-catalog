@@ -22,18 +22,19 @@ export class GetProductsService implements GetProducts {
         this.imageRepository = repositoryFactory.createImageRepository();
     }
 
-    async execute(): Promise<Product[]> {
+    async execute(): Promise<ProductModel[]> {
         const dataProducts: ProductModel[] = await this.productRepository.getProducts();
-        const products: Product[] = [];
+        const products: ProductModel[] = [];
 
         for(const item of dataProducts) {
             const category:ProductCategoryModel|undefined = await this.categoryRepository.getById(item.idCategory);
-            const productCategory: ProductCategory = { name: category?.name || "Empty" };
-
             const image: ProductImageModel|undefined = await this.imageRepository.getById(item.idImage);
-            const productImage: ProductImage = { name: image?.name || "img", url: image?.url || "none" };
-
-            const product: Product = new Product(item.name, item.description, item.code, item.price, productImage, productCategory);
+            
+            if(!category?.id || !image?.id) continue;
+            const product: ProductModel = { 
+                name: item.name, description: item.description, code: item.code, 
+                price: item.price, idImage: image?.id , idCategory: category?.id
+            };
             products.push(product);
         }
 
