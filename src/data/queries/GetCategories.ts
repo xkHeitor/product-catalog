@@ -1,16 +1,11 @@
-import { RepositoryFactory } from './../factories/Repository';
+import { GetCategories } from './../contracts/queries/Category';
 import { CategoryRepository } from './../contracts/repositories/CategoryRepository';
 import { ProductCategoryModel } from '../models/ProductCategory';
-import { GetCategories } from './../contracts/queries/GetCategories';
 
 
 export default class GetCategoriesQuery implements GetCategories {
     
-    private categoryRepository: CategoryRepository;
-
-    constructor(readonly repositoryFactory: RepositoryFactory) {
-        this.categoryRepository = repositoryFactory.createCategoryRepository();
-    }
+    constructor(private readonly categoryRepository: CategoryRepository) {}
 
     async handle(): Promise<ProductCategoryModel[]> {
         return this.categoryRepository.getAll();

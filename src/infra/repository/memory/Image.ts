@@ -12,6 +12,10 @@ export default class ImageMemoryRepository implements ImageRepository {
         ];
     }
 
+    async getAll(): Promise<ProductImageModel[]> {
+        return this.images;
+    }
+
     async getById(idImage: number): Promise<ProductImageModel|undefined> {
         return this.images.find(img => img.id === idImage);
     }
