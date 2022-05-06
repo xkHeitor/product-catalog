@@ -11,6 +11,10 @@ export default class CategoryMemoryRepository implements CategoryRepository {
             { name: "Phone", id: 2 }
         ];
     }
+
+    async getAll(): Promise<ProductCategoryModel[]> {
+        return this.categories;
+    }
     
     async getById(idCategory: number): Promise<ProductCategoryModel|undefined> {
         return this.categories.find(category => category.id === idCategory);
