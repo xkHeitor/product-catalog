@@ -1,6 +1,6 @@
-import { CategoryRepository } from '../../../data/contracts/CategoryRepository';
-import { ImageRepository } from '../../../data/contracts/ImageRepository';
-import { ProductRepository } from '../../../data/contracts/ProductRepository';
+import { CategoryRepository } from '../../../data/contracts/repository/CategoryRepository';
+import { ImageRepository } from '../../../data/contracts/repository/ImageRepository';
+import { ProductRepository } from '../../../data/contracts/repository/ProductRepository';
 import { RepositoryFactory } from './../../../data/factory/Repository';
 import CategoryMemoryRepository from '../../repository/memory/Category';
 import ImageMemoryRepository from '../../repository/memory/Image';

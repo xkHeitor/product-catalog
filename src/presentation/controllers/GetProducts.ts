@@ -1,4 +1,4 @@
-import { GetProductsService } from './../../data/services/GetProducts';
+import { GetProductsService } from '../../data/services/product/GetProducts';
 import { ProductViewModel } from './../view-models/Product';
 import { HttpResponse, ResponseError, ResponseOk } from '../contracts/HttpResponse';
 import { Controller } from './../contracts/Controller';

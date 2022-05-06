@@ -1,9 +1,9 @@
-import { ProductImageModel } from './../models/ProductImage';
-import { RepositoryFactory } from './../factory/Repository';
-import { ImageRepository } from './../contracts/ImageRepository';
-import { ProductImage } from '../../domain/entity/ProductImage';
-import { CreateImage } from './../../domain/usecase/CreateImage';
-import DuplicateImage from '../../domain/errors/DuplicateImage';
+import { ProductImageModel } from '../../models/ProductImage';
+import { RepositoryFactory } from '../../factory/Repository';
+import { ImageRepository } from '../../contracts/repository/ImageRepository';
+import { ProductImage } from '../../../domain/entity/ProductImage';
+import { CreateImage } from '../../../domain/usecase/image/CreateImage';
+import DuplicateImage from '../../../domain/errors/DuplicateImage';
 
 export default class CreateImageService implements CreateImage {
     
@@ -14,7 +14,7 @@ export default class CreateImageService implements CreateImage {
     }
 
     async execute(productImage: ProductImage): Promise<ProductImageModel> {
-        let dataImage = await this.imageRepository.getByURl(productImage.url);
+        let dataImage: ProductImageModel|undefined = await this.imageRepository.getByURl(productImage.url);
         if(dataImage) throw new DuplicateImage();
 
         await this.imageRepository.save(productImage.name, productImage.url);

@@ -1,7 +1,9 @@
+import { ImageRepository } from './../../src/data/contracts/repository/ImageRepository';
+import { ProductImageModel } from './../../src/data/models/ProductImage';
 import { ProductImage } from './../../src/domain/entity/ProductImage';
 import { RepositoryFactory } from './../../src/data/factory/Repository';
 import MemoryRepositoryFactory from '../../src/infra/factory/repository/Memory';
-import CreateImageService from '../../src/data/services/CreateImage';
+import CreateImageService from '../../src/data/services/image/CreateImage';
 
 
 describe("Create a image", () => {
@@ -10,14 +12,14 @@ describe("Create a image", () => {
     
     beforeEach(async () => {
         repository = new MemoryRepositoryFactory();
-        const imageRepository = repository.createImageRepository();
+        const imageRepository: ImageRepository = repository.createImageRepository();
         await imageRepository.clear();
     });
 
-    it("Should create a image with success", async () => {
-        const imageService = new CreateImageService(repository);
+    it("Should create a image with success", async (): Promise<void> => {
+        const imageService: CreateImageService = new CreateImageService(repository);
         const productImage: ProductImage = { name: "Photo 4k", url: "http://img.teste.com" };
-        const response = await imageService.execute(productImage);
+        const response: ProductImageModel = await imageService.execute(productImage);
         expect(response).toEqual(expect.objectContaining({ ...productImage, id: 3 }));
     });
 

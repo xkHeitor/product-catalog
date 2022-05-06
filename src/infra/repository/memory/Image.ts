@@ -1,4 +1,4 @@
-import { ImageRepository } from "../../../data/contracts/ImageRepository";
+import { ImageRepository } from "../../../data/contracts/repository/ImageRepository";
 import { ProductImageModel } from "../../../data/models/ProductImage";
 
 export default class ImageMemoryRepository implements ImageRepository {

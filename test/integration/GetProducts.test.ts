@@ -1,5 +1,5 @@
 import { RepositoryFactory } from "../../src/data/factory/Repository";
-import { GetProductsService } from "../../src/data/services/GetProducts";
+import { GetProductsService } from "../../src/data/services/product/GetProducts";
 import MemoryRepositoryFactory from "../../src/infra/factory/repository/Memory";
 
 describe("Get Products", () => {

@@ -1,9 +1,9 @@
-import { RepositoryFactory } from './../factory/Repository';
-import { ProductCategory } from "../../domain/entity/ProductCategory";
-import { CreateCategory } from "../../domain/usecase/CreateCategory";
-import { ProductCategoryModel } from "../models/ProductCategory";
-import { CategoryRepository } from '../contracts/CategoryRepository';
-import ExistingCategory from '../../domain/errors/ExistingCategory';
+import { RepositoryFactory } from '../../factory/Repository';
+import { ProductCategory } from "../../../domain/entity/ProductCategory";
+import { CreateCategory } from "../../../domain/usecase/category/CreateCategory";
+import { ProductCategoryModel } from "../../models/ProductCategory";
+import { CategoryRepository } from '../../contracts/repository/CategoryRepository';
+import ExistingCategory from '../../../domain/errors/ExistingCategory';
 
 export default class CreateCategoryService implements CreateCategory {
     
@@ -14,7 +14,7 @@ export default class CreateCategoryService implements CreateCategory {
     }
 
     async execute(category: ProductCategory): Promise<ProductCategoryModel> {
-        let productCategory = await this.categoryRepository.getByName(category.name);
+        let productCategory: ProductCategoryModel|undefined = await this.categoryRepository.getByName(category.name);
         if(productCategory) throw new ExistingCategory();
         
         await this.categoryRepository.save(category.name);

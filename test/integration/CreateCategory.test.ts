@@ -1,5 +1,5 @@
 import { ProductCategory } from './../../src/domain/entity/ProductCategory';
-import CreateCategoryService from '../../src/data/services/CreateCategory';
+import CreateCategoryService from '../../src/data/services/category/CreateCategory';
 import MemoryRepositoryFactory from '../../src/infra/factory/repository/Memory';
 import { RepositoryFactory } from './../../src/data/factory/Repository';
 
