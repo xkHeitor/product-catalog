@@ -25,8 +25,8 @@ export default class CreateProductService implements CreateProduct {
         const image: ProductImageModel|undefined = await this.imageRepository.getById(productModel.idImage);      
         const category: ProductCategoryModel|undefined = await this.categoryRepository.getById(productModel.idCategory);
         if(!image || !category) throw new InvalidData();
-        const product: Product = new Product(productModel.name, productModel.description, productModel.code, productModel.price, image, category);
         await this.productRepository.save(productModel);
+        const product: Product = new Product(productModel.name, productModel.description, productModel.code, productModel.price, image, category);
         return product;
     }
 

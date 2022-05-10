@@ -1,7 +1,7 @@
-import { ProductModel } from './../../../data/models/Product';
+import { GetProductsModel } from './../../../data/models/GetProduct';
 
 export interface GetProducts {
 
-    execute: () => Promise<ProductModel[]>
+    execute: () => Promise<GetProductsModel[]>
 
 }

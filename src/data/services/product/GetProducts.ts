@@ -1,6 +1,7 @@
+import { ProductModel } from './../../models/Product';
+import { GetProductsModel } from './../../models/GetProduct';
 import { ProductImageModel } from '../../models/ProductImage';
 import { ProductCategoryModel } from '../../models/ProductCategory';
-import { ProductModel } from '../../models/Product';
 import { GetProducts } from '../../../domain/usecase/product/GetProducts';
 import { ImageRepository } from '../../contracts/repositories/ImageRepository';
 import { ProductRepository } from '../../contracts/repositories/ProductRepository';
@@ -19,23 +20,27 @@ export class GetProductsService implements GetProducts {
         this.imageRepository = repositoryFactory.createImageRepository();
     }
 
-    async execute(): Promise<ProductModel[]> {
+    async execute(): Promise<GetProductsModel[]> {
         const dataProducts: ProductModel[] = await this.productRepository.getProducts();
-        const products: ProductModel[] = [];
+        const getProducts: GetProductsModel[] = [];
 
         for(const item of dataProducts) {
             const category:ProductCategoryModel|undefined = await this.categoryRepository.getById(item.idCategory);
             const image: ProductImageModel|undefined = await this.imageRepository.getById(item.idImage);
             
             if(!category?.id || !image?.id) continue;
-            const product: ProductModel = { 
+
+            const productModel: ProductModel = {
                 name: item.name, description: item.description, code: item.code, 
                 price: item.price, idImage: image?.id , idCategory: category?.id
             };
-            products.push(product);
+            const getProduct: GetProductsModel = { 
+                product: productModel, image, category 
+            };
+            getProducts.push(getProduct);
         }
 
-        return products;
+        return getProducts;
     }
 
 }
