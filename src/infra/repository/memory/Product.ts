@@ -11,7 +11,7 @@ export default class ProductRepositoryMemory implements ProductRepository {
                 id: 1, name: "iPhone 13", description: "iPhone Pro max 13 - red", code: "phoneApple13", price: 7500.50, idImage: 1, idCategory: 1,
             },
             {
-                id: 2, name: "Teclado me", description: "iPhone Pro max 13 - red", code: "phoneApple13", price: 8200.88, idImage: 1, idCategory: 1,
+                id: 2, name: "Teclado me", description: "iPhone Pro max 13 - red", code: "phoneApple13", price: 8200.88, idImage: 2, idCategory: 2,
             },
         ];
     }

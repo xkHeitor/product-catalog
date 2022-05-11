@@ -1,8 +1,8 @@
 import { ProductModel } from './../../src/data/models/Product';
 import { ProductRepository } from './../../src/data/contracts/repositories/ProductRepository';
 import { RepositoryFactory } from './../../src/data/factories/Repository';
+import { DeleteProductService } from '../../src/data/services/product/DeleteProduct';
 import MemoryRepositoryFactory from '../../src/infra/factory/repository/Memory';
-import DeleteProductService from '../../src/data/services/product/DeleteProduct';
 import NotFound from '../../src/domain/errors/NotFound';
 
 describe("Delete Product", () => {

@@ -1,6 +1,6 @@
 import { RepositoryFactory } from '../../src/data/factories/Repository';
 import { ProductModel } from '../../src/data/models/Product';
-import CreateProductService from '../../src/data/services/product/CreateProduct';
+import { CreateProductService } from '../../src/data/services/product/CreateProduct';
 import MemoryRepositoryFactory from '../../src/infra/factory/repository/Memory';
 import InvalidData from '../../src/domain/errors/InvalidData';
 import Product from '../../src/domain/entity/Product';

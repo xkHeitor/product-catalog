@@ -3,7 +3,7 @@ import { ProductRepository } from './../../contracts/repositories/ProductReposit
 import { DeleteProduct } from './../../../domain/usecase/product/DeleteProduct';
 import NotFound from '../../../domain/errors/NotFound';
 
-export default class DeleteProductService implements DeleteProduct {
+export class DeleteProductService implements DeleteProduct {
     
     constructor(private readonly productRepository: ProductRepository){}
 

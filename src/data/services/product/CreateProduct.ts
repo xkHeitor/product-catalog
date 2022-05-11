@@ -9,7 +9,7 @@ import { ProductModel } from "../../models/Product";
 import InvalidData from '../../../domain/errors/InvalidData';
 import Product from '../../../domain/entity/Product';
 
-export default class CreateProductService implements CreateProduct {
+export class CreateProductService implements CreateProduct {
     
     private productRepository: ProductRepository;
     private imageRepository: ImageRepository;
