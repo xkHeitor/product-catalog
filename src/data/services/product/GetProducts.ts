@@ -31,7 +31,7 @@ export class GetProductsService implements GetProducts {
             if(!category?.id || !image?.id) continue;
 
             const productModel: ProductModel = {
-                name: item.name, description: item.description, code: item.code, 
+                id: 3, name: item.name, description: item.description, code: item.code, 
                 price: item.price, idImage: image?.id , idCategory: category?.id
             };
             const getProduct: GetProductsModel = { 

@@ -11,19 +11,19 @@ describe("Create Product", () => {
 
     it("Should create a product with success", async () => {
         const productModel: ProductModel = {
-            name: "IPhone 13 Pro Max", description: "Phone", price: 8500, 
+            id: 3, name: "IPhone 13 Pro Max", description: "Phone", price: 8500, 
             code: "phone001", idCategory: 1, idImage: 1
         };
         const service: CreateProductService = new CreateProductService(repositoryFactory);
         const response: Product = await service.execute(productModel);
         
-        const { idCategory, idImage, ...productResponse }: Exclude<ProductModel, 'idImage' | 'idCategory'>  = productModel;
+        const { id, idCategory, idImage, ...productResponse }: Exclude<ProductModel, 'id'|'idImage'|'idCategory'>  = productModel;
         expect(response).toMatchObject(productResponse); 
     });
 
     it("Should dont create a product", async () => {
         const productModel: ProductModel = {
-            name: "IPhone 13 Pro Max", description: "Phone", price: 8500, 
+            id: 3, name: "IPhone 13 Pro Max", description: "Phone", price: 8500, 
             code: "phone001", idCategory: 5, idImage: 1
         };
         const service: CreateProductService = new CreateProductService(repositoryFactory)
