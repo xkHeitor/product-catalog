@@ -3,6 +3,7 @@ import { ProductRepository } from './../../src/data/contracts/repositories/Produ
 import { RepositoryFactory } from './../../src/data/factories/Repository';
 import MemoryRepositoryFactory from '../../src/infra/factory/repository/Memory';
 import DeleteProductService from '../../src/data/services/product/DeleteProduct';
+import NotFound from '../../src/domain/errors/NotFound';
 
 describe("Delete Product", () => {
 
@@ -19,6 +20,11 @@ describe("Delete Product", () => {
         await service.execute(productModel.code);
         const deletedProduct: ProductModel|undefined = await productRepository.getByCode(productModel.code);
         expect(deletedProduct).toBe(undefined);
+    });
+
+    it("Should delete a product with success", async () => {
+        const service: DeleteProductService = new DeleteProductService(productRepository); 
+        expect(async () => await service.execute(productModel.code)).rejects.toThrow(NotFound);
     });
 
 });
